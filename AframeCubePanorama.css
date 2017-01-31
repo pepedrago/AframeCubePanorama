@@ -1,0 +1,154 @@
+a-scene{
+    height: 540px; 
+    width:  960px;
+
+}
+
+#StartScreen{
+      
+        background: rgba(0, 0, 0, 0.45);
+        height: 70%;
+        width: 100%;
+        position: absolute;
+        bottom:64px;
+        margin-left: auto; 
+        margin-right: auto; 
+        z-index: 1;
+        text-align: left;
+
+}
+#QRCodeWindow{
+      
+        background-size: 100% 100%;
+        background: rgba(0, 0, 0, 0.45);
+        height: 60%;
+        width: 65%;
+        position: absolute;
+        left: 0; 
+        right: 0;
+        top: 20%;
+        margin-left: auto; 
+        margin-right: auto; 
+        z-index: 1;
+        text-align: left;
+        -webkit-border-radius: 36;
+        -moz-border-radius: 36;
+        border-radius: 36px;  
+}
+
+#QrCode{
+    background-image: url(img/qrCode.png);
+    background-repeat: no-repeat;
+    height: 260px;
+    width:  260px;
+    margin:32px;
+    display: inline-block;
+}
+#QrModeDescription{   
+    background-repeat: no-repeat;
+    height: 260px;
+    width:  260px;
+    margin: 32px 0 0 0;
+    display: inline-block;
+    bottom:0;
+}
+
+
+h1{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 100px;
+    color: white;
+}
+h2{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 36px;
+    color: white;
+}
+
+p{
+    font-family: 'Crimson Text', serif;
+    font-size: 1.5em;
+    color: white;
+    margin: 0;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+.btn{
+  -webkit-border-radius: 36;
+  -moz-border-radius: 36;
+  border-radius: 36px;
+  background-color: rgba(46, 46, 47,0.5);
+  font-family: 'Crimson Text', serif;
+  font-size: 24px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  color: white;
+  font-style: italic;
+  font-weight: 400;
+  border: none;
+  height: 72px;
+
+}
+
+#backBtn{
+    width:200px;
+}
+
+.hidden{
+    visibility: hidden;
+    display:none;
+}
+#startIcon{
+    background-image:url(img/start_icon.png);
+    width: 24px;
+    height:24px;
+}
+#vrIcon{
+    background-image:url(img/vr_icon.png);
+    width: 49px;
+    height:29px;
+}
+#closeIcon{
+    background-image:url(img/close.png);
+    width: 49px;
+    height:29px;
+}
+.Icon{  
+    background-repeat: no-repeat;
+    content: '';
+    display:inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+    padding-bottom: 26px;
+}
+
+.inverted{
+      filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+#footer{
+    background-color:rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#footer p{
+    font-size: 1.2em;
+    margin: 10px 0 10px 0;
+}
+#footer a:link,a:visited,a:hover,a:active{
+    color:orange;
+    text-decoration: none;
+}
+
+.a-enter-vr-button{
+    visibility:hidden;
+}
+#QRCodeWindow{
+     visibility:inherit;
+}
+.visible{
+    display:block;
+    visibility:inherit;
+}

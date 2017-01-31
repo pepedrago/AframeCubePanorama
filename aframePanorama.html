@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>A-Frame walkthrough (final)</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+        <script src="stereocube.js"></script>
+     
+        <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Julius+Sans+One" rel="stylesheet">
+       <link rel="stylesheet" href="AframeCubePanorama.css">
+    </head>
+<body>
+   <a-scene vr-mode-ui="enabled: true" embedded="" >
+    <a-assets>
+      <img id="circle" src="circle.png"/>
+       <a-mixin id="camStartScreenRotation"
+                attribute="rotation"
+                dur="100000"
+                fill="forwards"
+                easing="linear"
+                to="0 360 0"
+                repeat="indefinite">
+        </a-mixin>
+        <a-mixin id="stopRotation"
+                attribute="rotation"
+                fill="forwards"
+                dur="100"
+              
+                to="0 0 0"
+                repeat="0">
+        </a-mixin>  
+    </a-assets>
+
+    <a-camera stereocam position="0 0 0" >
+        <a-animation id="camAnimation" mixin="camStartScreenRotation">           
+        </a-animation>
+    </a-camera>
+
+    <a-entity id="skyL" position="0 0 0" skycube="folder:L; eye:left" scale="1 1 -1"></a-entity>
+    <a-entity id="skyR" position="0 0 0" skycube="folder:R; eye:right" scale="1 1 -1"></a-entity>
+       
+    <!----------- Start Screen -->
+    <div  class="container" id="StartScreen">
+         <div class="row">
+            <div class="col-lg-6 col-lg-offset-1">
+            <h1>360° View</h1>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-1">
+                <button class="btn btn-lg btn-default Close" id="startBtn" parentID="StartScreen"><span class="Icon" id="startIcon"></span>Start</button> 
+                <button class="btn btn-lg btn-default Close" id="vrBtn" parentID="StartScreen"><span class="Icon" id="vrIcon"></span>Open on mobile VR</button> 
+            </div>     
+        </div>
+            <div class="row" id="footer">
+                <div class="col-lg-12 col-lg-offset-1">
+                   <p > Made with <span><a href="#">aframe</a></span>. Get project on <span><a href="#">Github</a></span></p>
+                </div>
+            </div>
+    </div>      
+    <!----------- QR CODE WINDOW -->
+    <div  class="container" id="QRCodeWindow">
+     <div class="row">
+        <div id="QrCode" class="col-lg-6">
+        </div>
+         <div id="QrModeDescription" class="col-lg-6">
+        <h2>Stereo 3D mode</h2>
+        <p>Scan with cardboard
+compatible device to start stereo 3d mode</p>
+             <div class="col-lg-6">
+            <button class="btn btn-lg btn-default Close" id="backBtn" parentID="QRCodeWindow"><span class="Icon" id="closeIcon"></span>Close</button> 
+        </div>   
+        </div>
+    </div> 
+    <div class="row">
+          
+    </div>
+
+    </div>    
+  </a-scene>
+    
+</body>
+<script src="AframeCubePanorama.js"></script>
+
+
+</html>
