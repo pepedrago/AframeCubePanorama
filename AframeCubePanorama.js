@@ -44,10 +44,16 @@ function Init()
  IsMobile      = AFRAME.utils.device.isMobile();
  IsHeadSet     = AFRAME.utils.device.checkHeadsetConnected ();
     
+  if(!IsMobile)
+  {
+    $("a-scene").css({"margin": "100px auto"})    
+  }  
+    
+    
  $('.btn').click(function(){OnBtnClicked(this)});
  $('.btn').hover(function(){OnBtnHover(this)});  
     
-
+ 
     
  PrevScreenState = ScreenStates.LOADING;
  Screenstate.current = ScreenStates.STARTSCREEN;  
