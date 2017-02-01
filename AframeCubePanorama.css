@@ -1,4 +1,6 @@
-
+a-scene{
+    margin: 100px auto;
+}
 
 #StartScreen{
       
@@ -94,13 +96,13 @@ p{
 }
 
 .visible{
-    
+     display: block;
     visibility: visible;
 }
 
 
 .hidden{
-   
+    display: none;
     visibility:hidden;
 }
 #startIcon{

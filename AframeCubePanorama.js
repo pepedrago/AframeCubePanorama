@@ -37,7 +37,7 @@ function Init()
  QRScreen    = $("#QRCodeWindow");
     
  $(QRScreen).addClass('hidden');
- $(StartScreen).addClass('visible');
+ $(StartScreen).addClass('hidden');
     
  IsMobile      = AFRAME.utils.device.isMobile();
  IsHeadSet     = AFRAME.utils.device.checkHeadsetConnected ();
@@ -80,7 +80,7 @@ function ChangeScreen(_state,_direction)
         if(_direction==="in")
         {
            console.log("fading in"+ screen); 
-            $(screen).fadeTo("slow",1,function()
+            $(screen).fadeIn("slow",function()
          {
           //  onComplete
          });
@@ -88,7 +88,7 @@ function ChangeScreen(_state,_direction)
         else if(_direction==="out")
         {
             console.log("fading out"+ screen); 
-           $(screen).fadeTo("slow",0,function()
+           $(screen).fadeOut("slow",function()
          {
          //   onComplete
          });
