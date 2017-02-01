@@ -61,6 +61,7 @@ function ChangeScreen(_state,_direction)
     switch(_state)
     {
         case ScreenStates.STARTSCREEN:
+        StartAnimation();
         screen = StartScreen;
         break;
         case ScreenStates.QRSCREEN:  

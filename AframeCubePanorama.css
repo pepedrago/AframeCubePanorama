@@ -34,6 +34,10 @@ a-scene{
         border-radius: 2.25em;  
 }
 
+.btn:focus,.btn:active {
+   outline: none !important;
+}
+
 #QrCode{
     background-image: url(img/qrCode.png);
     background-repeat: no-repeat;
