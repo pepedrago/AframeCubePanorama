@@ -34,8 +34,11 @@ a-scene{
         border-radius: 2.25em;  
 }
 
-.btn:focus,.btn:active {
-   outline: none !important;
+.btn,
+.btn:active, 
+.btn:focus, 
+.btn:hover{   
+    outline:none !important;
 }
 
 #QrCode{
