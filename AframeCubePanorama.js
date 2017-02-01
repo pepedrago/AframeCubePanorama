@@ -35,9 +35,11 @@ function Init()
 {
  StartScreen = $("#StartScreen");
  QRScreen    = $("#QRCodeWindow");
+ MonoView    = $("#MonoView");
     
  $(QRScreen).addClass('hidden');
  $(StartScreen).addClass('hidden');
+ $(MonoView).addClass('hidden');
     
  IsMobile      = AFRAME.utils.device.isMobile();
  IsHeadSet     = AFRAME.utils.device.checkHeadsetConnected ();
@@ -65,6 +67,7 @@ function ChangeScreen(_state,_direction)
         screen = QRScreen;
         break;
         case ScreenStates.MONOVIEW:
+        screen = MonoView;
         StopAnimation();
         break
         case ScreenStates.STEREOVIEW:
@@ -149,10 +152,7 @@ function StopAnimation()
 {
     $('#camAnimation').attr('mixin',"stopRotation");
 }
-
-
 //------------------------------
-Init();
 $( window ).resize(function() {
   ChangeCanvasSize();
 });
@@ -173,3 +173,5 @@ function ChangeCanvasSize()
     }
   
 }
+//------------------------------
+Init();

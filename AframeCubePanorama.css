@@ -52,7 +52,15 @@ a-scene{
     display: inline-block;
     bottom:0;
 }
-
+#MonoView
+{
+    background-color:rgba(0,0,0,0);
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 1;
+    margin: 8px;
+}
 
 h1{
     font-family: 'Julius Sans One', sans-serif;
