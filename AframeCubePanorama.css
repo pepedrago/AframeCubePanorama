@@ -1,8 +1,4 @@
-a-scene{
-    height: 540px; 
-    width:  960px;
 
-}
 
 #StartScreen{
       
@@ -10,7 +6,7 @@ a-scene{
         height: 70%;
         width: 100%;
         position: absolute;
-        bottom:64px;
+        bottom:4em;
         margin-left: auto; 
         margin-right: auto; 
         z-index: 1;
@@ -21,7 +17,7 @@ a-scene{
       
         background-size: 100% 100%;
         background: rgba(0, 0, 0, 0.45);
-        height: 60%;
+        height: 53%;
         width: 65%;
         position: absolute;
         left: 0; 
@@ -33,22 +29,24 @@ a-scene{
         text-align: left;
         -webkit-border-radius: 36;
         -moz-border-radius: 36;
-        border-radius: 36px;  
+        border-radius: 2.25em;  
 }
 
 #QrCode{
     background-image: url(img/qrCode.png);
     background-repeat: no-repeat;
-    height: 260px;
-    width:  260px;
-    margin:32px;
+    height: 18em;
+    width:  18em;
+     background-size:contain;
+    margin:1.5em;
     display: inline-block;
 }
 #QrModeDescription{   
     background-repeat: no-repeat;
     height: 260px;
     width:  260px;
-    margin: 32px 0 0 0;
+   
+    margin: 4px 0 0 0;
     display: inline-block;
     bottom:0;
 }
@@ -56,7 +54,7 @@ a-scene{
 
 h1{
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 100px;
+    font-size: 8em;
     color: white;
 }
 h2{
@@ -92,11 +90,18 @@ p{
 
 #backBtn{
     width:200px;
+    padding: 0;
 }
 
+.visible{
+    
+    visibility: visible;
+}
+
+
 .hidden{
-    visibility: hidden;
-    display:none;
+   
+    visibility:hidden;
 }
 #startIcon{
     background-image:url(img/start_icon.png);
@@ -130,7 +135,7 @@ p{
 #footer{
     background-color:rgba(0,0,0,0.5);
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     width: 100%;
 }
 #footer p{
@@ -148,7 +153,4 @@ p{
 #QRCodeWindow{
      visibility:inherit;
 }
-.visible{
-    display:block;
-    visibility:inherit;
-}
+

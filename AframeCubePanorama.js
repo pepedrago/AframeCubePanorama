@@ -3,6 +3,7 @@ var IsMobile      = false;
 var HeadSetActive = false;
 var StartScreen;
 var QRScreen;
+var DefaultWidth  = 960;
 //------------------------------
 var PrevScreenState;
 //------------------------------
@@ -27,27 +28,28 @@ var Screenstate = {
   get current ()
   {
     return current;
-  }
-  
+  } 
 }
 //------------------------------
 function Init()
 {
  StartScreen = $("#StartScreen");
  QRScreen    = $("#QRCodeWindow");
-
+    
+ $(QRScreen).addClass('hidden');
+ $(StartScreen).addClass('visible');
+    
  IsMobile      = AFRAME.utils.device.isMobile();
  IsHeadSet     = AFRAME.utils.device.checkHeadsetConnected ();
     
  $('.btn').click(function(){OnBtnClicked(this)});
  $('.btn').hover(function(){OnBtnHover(this)});  
     
- $(QRScreen).addClass('hidden');
- $(StartScreen).addClass('visible');
+
     
  PrevScreenState = ScreenStates.LOADING;
  Screenstate.current = ScreenStates.STARTSCREEN;  
-  
+ ChangeCanvasSize();
 }
 //------------------------------
 function ChangeScreen(_state,_direction)
@@ -59,7 +61,7 @@ function ChangeScreen(_state,_direction)
         case ScreenStates.STARTSCREEN:
         screen = StartScreen;
         break;
-        case ScreenStates.QRSCREEN:
+        case ScreenStates.QRSCREEN:  
         screen = QRScreen;
         break;
         case ScreenStates.MONOVIEW:
@@ -67,25 +69,30 @@ function ChangeScreen(_state,_direction)
         break
         case ScreenStates.STEREOVIEW:
         StopAnimation();
+        document.querySelector('a-scene').enterVR();  
         break;
         default:
         console.log(PrevScreenState);
         break;
     } 
-    
-    if(_direction==="in")
-    {
-        $(screen).fadeIn("slow",function()
-     {
-        ToggleWindow(screen);
-     });
-    }
-    else if(_direction==="out")
-    {
-       $(screen).fadeOut("slow",function()
-     {
-        ToggleWindow(screen);
-     });
+    if(screen!=null)
+    {   ToggleWindow(screen);
+        if(_direction==="in")
+        {
+           console.log("fading in"+ screen); 
+            $(screen).fadeTo("slow",1,function()
+         {
+          //  onComplete
+         });
+        }
+        else if(_direction==="out")
+        {
+            console.log("fading out"+ screen); 
+           $(screen).fadeTo("slow",0,function()
+         {
+         //   onComplete
+         });
+        }
     }
 }
 //------------------------------
@@ -100,35 +107,37 @@ function OnBtnClicked(_obj)
         if(IsMobile||IsHeadSet)
         {
           Screenstate.current = ScreenStates.STEREOVIEW;
-          document.querySelector('a-scene').enterVR();  
+          
         }
         else
         {
             Screenstate.current = ScreenStates.QRSCREEN;
-            ToggleWindow($("#QRCodeWindow"));       
+              
         }    
     }
     if($(_obj).attr("id")=="backBtn")
     {
        Screenstate.current = ScreenStates.STARTSCREEN;
-       ToggleWindow($("#StartScreen"));
+       
     }  
 }
 //------------------------------
-function ToggleWindow(_window){
-    if($(_window).attr('visible'))
+function ToggleWindow(_screen)
+{
+    if($(_screen).attr('visible'))
     {
-        $(_window).removeClass('vissible');
-        $(_window).addClass('hidden');     
+        $(_screen).removeClass('vissible');
+        $(_screen).addClass('hidden');     
     }
     else
     {
-        $(_window).removeClass('hidden');
-        $(_window).addClass('visible');
+        $(_screen).removeClass('hidden');
+        $(_screen).addClass('visible');
     }
 }
 //------------------------------
-function OnBtnHover(_obj){
+function OnBtnHover(_obj)
+{
     $(_obj).find(".Icon").toggleClass("inverted");
 }
 //------------------------------
@@ -140,5 +149,27 @@ function StopAnimation()
 {
     $('#camAnimation').attr('mixin',"stopRotation");
 }
+
+
 //------------------------------
 Init();
+$( window ).resize(function() {
+  ChangeCanvasSize();
+});
+
+$( window ).on( "orientationchange", function( event ) {
+  ChangeCanvasSize(); 
+});
+
+function ChangeCanvasSize()
+{
+  var newWidth  =  ($( window ).width()/960)*960;
+  var newHeight =  540*($( window ).width()/960);
+  var AllowScaling = (newWidth<DefaultWidth)?true:(IsMobile)?true:false;
+  console.log(document.querySelector('a-camera').object3D);
+    if(newWidth<DefaultWidth||IsMobile)
+    {
+    $('a-scene').css({"width":newWidth.toString()+"px","height":newHeight.toString()+"px"})
+    }
+  
+}

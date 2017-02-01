@@ -13,7 +13,7 @@
        <link rel="stylesheet" href="AframeCubePanorama.css">
     </head>
 <body>
-   <a-scene vr-mode-ui="enabled: true" embedded="" >
+   <a-scene vr-mode-ui="enabled: true" embedded="" style="height:540px;width:960px;">
     <a-assets>
       <img id="circle" src="circle.png"/>
        <a-mixin id="camStartScreenRotation"
@@ -45,39 +45,35 @@
     <!----------- Start Screen -->
     <div  class="container" id="StartScreen">
          <div class="row">
-            <div class="col-lg-6 col-lg-offset-1">
+            <div class="col-sm-12 col-lg-6 col-sm-offset-1">
             <h1>360° View</h1>
             </div>
         </div> 
         <div class="row">
-            <div class="col-lg-6 col-lg-offset-1">
+            <div class=" col-lg-12 col-sm-12  col-sm-offset-1">
                 <button class="btn btn-lg btn-default Close" id="startBtn" parentID="StartScreen"><span class="Icon" id="startIcon"></span>Start</button> 
-                <button class="btn btn-lg btn-default Close" id="vrBtn" parentID="StartScreen"><span class="Icon" id="vrIcon"></span>Open on mobile VR</button> 
+                <button class="btn btn-lg btn-default Close" id="vrBtn" parentID="StartScreen"><span class="Icon" id="vrIcon"></span>VR Mode </button> 
             </div>     
         </div>
             <div class="row" id="footer">
-                <div class="col-lg-12 col-lg-offset-1">
-                   <p > Made with <span><a href="#">aframe</a></span>. Get project on <span><a href="#">Github</a></span></p>
+                <div class="col-sm-12 col-lg-12 col-lg-offset-1">
+                   <p > Made with <span><a href="https://aframe.io/">aframe</a></span>. Get project on <span><a href="https://github.com/SuperKlausKinski/AframeCubePanorama">Github</a></span></p>
                 </div>
             </div>
     </div>      
     <!----------- QR CODE WINDOW -->
-    <div  class="container" id="QRCodeWindow">
+    <div  class="container-fluid" id="QRCodeWindow">
      <div class="row">
-        <div id="QrCode" class="col-lg-6">
+        <div id="QrCode" class="col-sm-6 col-lg-12">
         </div>
-         <div id="QrModeDescription" class="col-lg-6">
-        <h2>Stereo 3D mode</h2>
-        <p>Scan with cardboard
-compatible device to start stereo 3d mode</p>
-             <div class="col-lg-6">
-            <button class="btn btn-lg btn-default Close" id="backBtn" parentID="QRCodeWindow"><span class="Icon" id="closeIcon"></span>Close</button> 
-        </div>   
+        <div id="QrModeDescription" class="col-sm-6 col-lg-12">
+            <h2>Stereo 3D mode</h2>
+            <p>Scan with cardboard compatible device to start stereo 3d mode</p>   
+                <button class="btn btn-lg btn-default Close" id="backBtn" parentID="QRCodeWindow">
+                <span class="Icon" id="closeIcon"></span>Close</button> 
         </div>
     </div> 
-    <div class="row">
-          
-    </div>
+
 
     </div>    
   </a-scene>
